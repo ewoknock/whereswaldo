@@ -1,0 +1,15 @@
+.characters{
+
+    &__foundList{
+        display: flex;
+        justify-content: space-around;
+        padding: 0 var(--space-l);
+    }
+
+    &__found{
+        color: var(--color-white);
+        background-color: var(--color-secondary);
+        padding: var(--space-xxs) var(--space-xs);
+        border-radius: var(--space-s);
+    }
+}
