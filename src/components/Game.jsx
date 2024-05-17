@@ -1,7 +1,11 @@
+import Characters from "./Characters"
+import Gameboard from "./Gameboard"
+
 function Game (){
     return (
         <section className="game">
-            Hello
+            <Characters />
+            <Gameboard />
         </section>
     )
 }
