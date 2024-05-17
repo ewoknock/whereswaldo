@@ -42,7 +42,7 @@ function Gameboard({characters}){
         <div className="gameboard">
             <img src={gameImage} onClick={setAllStates}/>
             <div style={style} className="dropdown">
-                <button className="btn btn__dropdown" onClick={collapsible}>Who is it?</button>
+                <button className="btn btn__dropdown" onClick={collapsible}>Who is it? {'\u25bc'}</button>
                 <ul className="dropdown__menu" ref={dropdownMenu} style={{ maxHeight: dropdownHeight}}>
                     {characterNames.map((character, i) => {
                         return <GuessButton key={i} onClick={() => handleGuess(character)}>{character}</GuessButton>
