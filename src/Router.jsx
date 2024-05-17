@@ -4,6 +4,7 @@ import {
 } from 'react-router-dom'
 import App from './App.jsx'
 import Home from './components/Home.jsx'
+import Game from './components/Game.jsx'
 import ErrorPage from './components/ErrorPage.jsx'
 
 const Router = () => {
@@ -17,6 +18,10 @@ const Router = () => {
                     index: true,
                     element: <Home />
                 },
+                {
+                    path: "/play",
+                    element: <Game />
+                }
             ]
         }
     ])
