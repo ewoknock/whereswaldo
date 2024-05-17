@@ -1,0 +1,24 @@
+.dropdown{
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xxxs);
+    position: absolute;
+    
+    &__menu{
+        background-color: var(--color-white);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        list-style-type: none;
+    }
+
+    &__item{
+        cursor: pointer;
+        padding: 0 var(--space-s);
+        margin: var(--space-xxs) 0;
+
+
+        &:hover{
+            background-color: var(--color-text-muted);
+        }
+    }
+}
