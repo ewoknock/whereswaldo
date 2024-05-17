@@ -9,7 +9,7 @@ function Game (){
     return (
         <section className="game">
             <Characters characters={characters} />
-            <Gameboard />
+            <Gameboard characters={characters}/>
         </section>
     )
 }

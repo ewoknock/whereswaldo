@@ -1,3 +1,7 @@
 .gameboard{
     padding: var(--space-m);
+
+    &__dropdown{
+        position: absolute;
+    }
 }
