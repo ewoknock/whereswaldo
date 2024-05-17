@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-xxxs);
-    position: absolute;
+    transform: translate(-5%, -50%);
     
     &__menu{
         background-color: var(--color-white);

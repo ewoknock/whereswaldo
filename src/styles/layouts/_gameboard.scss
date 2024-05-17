@@ -1,3 +1,17 @@
 .gameboard{
     padding: var(--space-m);
 }
+
+.guess{
+    position: absolute;
+
+
+    &__targetbox{
+        background-color: rgba(255, 255, 0, 0.205);
+        height: 6vh;
+        width: 5vh;
+        border-radius: 10px;
+        border: 3px dotted red;
+        transform: translate(-30%, -50%);
+    }
+}
