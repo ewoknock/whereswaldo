@@ -1,8 +1,22 @@
-import { useState } from "react"
+import { 
+    useState, 
+    useEffect 
+} from "react"
 import Characters from "./Characters"
 import Gameboard from "./Gameboard"
 
+const backEndUrl = "http://localhost:3000/"
+
 function Game (){
+
+    useEffect(() => {
+        let url = backEndUrl + "api/v1/characters/"
+        console.log(url) 
+        fetch(url)
+            .then((response) => {
+                console.log(response.json())
+            })
+    }, [])
 
     const [characters, setCharacters] = useState([
         {name: "Washington Carver", x:0.166, y:0.374}, 
