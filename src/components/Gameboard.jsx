@@ -5,7 +5,8 @@ import {
     useState,
     useRef } from "react"
 import {
-    getClickPositions
+    getClickPositions,
+    setBoxPositions
 } from "../helpers/gameBoardHelper"
 
 function Gameboard({characters}){
@@ -26,8 +27,16 @@ function Gameboard({characters}){
         setDropdownHeight(0)
     }
 
-    const handleGuess = (character) => {
+    const foundCharacter = (character) => {
+        const { left, right, top, bottom } = setBoxPositions(guess, imgSize)
+        let xPos = left <= (character.x * imgSize.w) && right >= (character.x * imgSize.w)
+        let yPos = top <= (character.y * imgSize.h) && bottom >= (character.y * imgSize.h)
+        return xPos && yPos
+    }
 
+    const handleGuess = (character) => {
+        let found = foundCharacter(character)
+        console.log(found);
     }
 
     const collapsible = () => {
