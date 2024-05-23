@@ -4,6 +4,7 @@ import {
 } from "react"
 import Characters from "./Characters"
 import Gameboard from "./Gameboard"
+import { FoundCharactersProvider } from "./FoundCharacters"
 
 const backEndUrl = "http://localhost:3000/"
 
@@ -27,10 +28,13 @@ function Game (){
     }, [])
 
     return (
-        <section className="game">
-            <Characters characters={characters} />
-            <Gameboard characters={characters}/>
-        </section>
+        <FoundCharactersProvider>
+            <section className="game">
+                <Characters characters={characters} />
+                <Gameboard characters={characters} />
+            </section>
+        </FoundCharactersProvider>
+ 
     )
 }
 

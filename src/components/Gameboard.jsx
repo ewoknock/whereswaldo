@@ -3,17 +3,24 @@ import gameImage from "../assets/image1.png"
 import GuessButton from "./GuessButton"
 import { 
     useState,
-    useRef } from "react"
+    useRef,
+} from "react"
 import {
     getClickPositions,
     setBoxPositions
 } from "../helpers/gameBoardHelper"
+import {
+    useFoundCharacters, 
+    useFoundCharactersDispatch
+} from "./FoundCharacters"
 
 function Gameboard({characters}){
     const [guess, setGuess] = useState({x: null, y: null})
     const [targetPosition, setTargetPosition] = useState({ x:0, y: 0, show: false})
     const [imgSize, setImgSize] = useState({w:0, h:0})
     const [dropdownHeight, setDropdownHeight] = useState(0)
+    const foundCharacters = useFoundCharacters()
+    const dispatch = useFoundCharactersDispatch()
 
     const dropdownMenu = useRef(null)
 
@@ -34,9 +41,16 @@ function Gameboard({characters}){
         return xPos && yPos
     }
 
+    const closeTarget = () => {setTargetPosition({...targetPosition, show: false})}
+
     const handleGuess = (character) => {
+        console.log(foundCharacters)
+
         let found = foundCharacter(character)
-        console.log(found);
+        if(found){
+            dispatch({type: 'found', name: character.name})
+        }
+        closeTarget()
     }
 
     const collapsible = () => {
