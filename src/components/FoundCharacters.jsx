@@ -41,7 +41,7 @@ function foundNamesReducer(foundCharacters, action){
 }
 
 FoundCharactersProvider.propTypes = {
-    children: PropTypes.object
+    children: PropTypes.array
 }
 
 export {

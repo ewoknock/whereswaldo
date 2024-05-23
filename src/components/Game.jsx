@@ -11,6 +11,8 @@ const backEndUrl = "http://localhost:3000/"
 function Game (){
 
     const [characters, setCharacters] = useState([])
+    const [gameOver, setGameOver] = useState(false)
+
 
     useEffect(() => {
         let url = backEndUrl + "api/v1/characters/"
@@ -29,9 +31,10 @@ function Game (){
 
     return (
         <FoundCharactersProvider>
+            {gameOver}
             <section className="game">
                 <Characters characters={characters} />
-                <Gameboard characters={characters} />
+                <Gameboard characters={characters} endGame={() => setGameOver(true)} />
             </section>
         </FoundCharactersProvider>
  

@@ -14,7 +14,7 @@ import {
     useFoundCharactersDispatch
 } from "./FoundCharacters"
 
-function Gameboard({characters}){
+function Gameboard({characters, endGame}){
     const [guess, setGuess] = useState({x: null, y: null})
     const [targetPosition, setTargetPosition] = useState({ x:0, y: 0, show: false})
     const [imgSize, setImgSize] = useState({w:0, h:0})
@@ -51,6 +51,7 @@ function Gameboard({characters}){
             dispatch({type: 'found', name: character.name})
         }
         closeTarget()
+        if(found && foundCharacters.length == 4){endGame()}
     }
 
     const collapsible = () => {
@@ -68,7 +69,9 @@ function Gameboard({characters}){
                 <button className="btn btn__dropdown" onClick={collapsible}>Who is it? {'\u25bc'}</button>
                 <ul className="dropdown__menu" ref={dropdownMenu} style={{ maxHeight: dropdownHeight}}>
                     {characterNames.map((character, i) => {
-                        return <GuessButton key={i} onClick={() => handleGuess(character)}>{character.name}</GuessButton>
+                        if(!foundCharacters.includes(character.name)){
+                            return <GuessButton key={i} onClick={() => handleGuess(character)}>{character.name}</GuessButton>   
+                        }
                     })}
                 </ul>
             </div>
