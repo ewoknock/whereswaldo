@@ -1,18 +1,21 @@
 import PropTypes from 'prop-types'
 import characterImage from "../assets/characters.png"
+import { useFoundCharacters } from './FoundCharacters'
 
 function Characters({characters}){
-
+    const foundCharacters = useFoundCharacters()
     const characterNames = characters
+
+    let foundList = characterNames.map((character, i) => {
+        let display = foundCharacters.includes(character.name) ? 'visible' : 'hidden'
+        return <span key={i} style={{visibility: display}} className="characters__found">Found</span>
+    })
 
     return (
         <div className="characters">
             <img src={characterImage}/> 
             <div className="characters__foundList">
-                {characterNames.map((name, i) => {
-                    let display = true
-                    return <span key={i} style={{visibility: display}} className="characters__found">Found</span>
-                })}
+                {foundList}
             </div>
         </div>
     )
