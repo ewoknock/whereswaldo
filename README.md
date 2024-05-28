@@ -1,8 +1,18 @@
-# React + Vite
+# Where's Waldo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a web based version of the classic Where's Waldo game built using React as the frontend and Rails as the backend.
 
-Currently, two official plugins are available:
+- [Link to the Assignment](https://www.theodinproject.com/lessons/react-new-where-s-waldo-a-photo-tagging-app)
+- [Link to the Backend](https://github.com/ewoknock/whereswaldo-api)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+
+Rails as backend API to store image coordinates and also user scores in POSTGRES database. User scores still to be implemented.
+
+## Javascript/HTML/SCSS
+React
+Vite
+ESLint
+Vitest and React Testing Library for testing
+Rails
+POSTGRES

@@ -82,7 +82,8 @@ function Gameboard({characters, endGame}){
 }
 
 Gameboard.propTypes = {
-    characters: PropTypes.array
+    characters: PropTypes.array,
+    endGame: PropTypes.func
 }
 
 export default Gameboard
