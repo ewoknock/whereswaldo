@@ -6,6 +6,7 @@ import Characters from "./Characters"
 import Gameboard from "./Gameboard"
 import { FoundCharactersProvider } from "./FoundCharacters"
 import Timer from "./Timer"
+import GameEndScreen from "./GameEndScreen"
 
 const backEndUrl = "http://localhost:3000/"
 
@@ -15,7 +16,6 @@ function Game (){
     const [gameOver, setGameOver] = useState(false)
     const [finalTime, setFinalTime] = useState(0);
 
-    console.log(gameOver);
     useEffect(() => {
         let url = backEndUrl + "api/v1/characters/"
         fetch(url)
@@ -34,13 +34,13 @@ function Game (){
     return (
         <>
             <FoundCharactersProvider>
-                {gameOver}
+                {gameOver && <GameEndScreen finalTime={finalTime} />}
                 <section className="game">
                     <Characters characters={characters} />
                     <Gameboard characters={characters} endGame={() => setGameOver(true)} setFinalTime={setFinalTime} />
                 </section>
             </FoundCharactersProvider>
-            <Timer gameOver={gameOver} setFinalTime={setFinalTime}/>
+            {!gameOver && <Timer gameOver={gameOver} setFinalTime={setFinalTime}/>}
         </>
  
     )
