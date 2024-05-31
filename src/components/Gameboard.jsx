@@ -13,9 +13,8 @@ import {
     useFoundCharacters, 
     useFoundCharactersDispatch
 } from "./FoundCharacters"
-import Timer from "./Timer"
 
-function Gameboard({characters, endGame, setFinalTime}){
+function Gameboard({characters, endGame}){
     const [guess, setGuess] = useState({x: null, y: null})
     const [targetPosition, setTargetPosition] = useState({ x:0, y: 0, show: false})
     const [imgSize, setImgSize] = useState({w:0, h:0})
@@ -52,7 +51,9 @@ function Gameboard({characters, endGame, setFinalTime}){
             dispatch({type: 'found', name: character.name})
         }
         closeTarget()
-        if(found && foundCharacters.length == 4){endGame()}
+        if(found && foundCharacters.length == 4){
+            endGame()
+        }
     }
 
     const collapsible = () => {
@@ -77,14 +78,13 @@ function Gameboard({characters, endGame, setFinalTime}){
                 </ul>
             </div>
             </div>
-            <Timer endGame={endGame} setFinalTime={setFinalTime}/>
         </div>
     )
 }
 
 Gameboard.propTypes = {
     characters: PropTypes.array,
-    endGame: PropTypes.func
+    endGame: PropTypes.func,
 }
 
 export default Gameboard
