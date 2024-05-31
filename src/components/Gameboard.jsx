@@ -13,6 +13,7 @@ import {
     useFoundCharacters, 
     useFoundCharactersDispatch
 } from "./FoundCharacters"
+import Timer from "./Timer"
 
 function Gameboard({characters, endGame}){
     const [guess, setGuess] = useState({x: null, y: null})
@@ -76,7 +77,7 @@ function Gameboard({characters, endGame}){
                 </ul>
             </div>
             </div>
-
+            <Timer />
         </div>
     )
 }
