@@ -26,6 +26,9 @@
         display: flex;
         gap: var(--space-s);
         padding-bottom: var(--space-s);
+        justify-content: center;
+        align-items: center;
+
     }
 
     &__background{

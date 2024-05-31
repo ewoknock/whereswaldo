@@ -5,4 +5,28 @@
     &__dropdown{
         width: 100px;
     }
+
+    &__play-again{
+        border: 2px solid var(--color-secondary);
+        background-color: var(--color-white);
+        padding: var(--space-xxxs) var(--space-s);
+        color: var(--color-secondary);
+
+        &:hover{
+            background-color: var(--color-secondary);
+            color: var(--color-white);
+            cursor: pointer;
+        }
+    }
+    &__home{
+        border: 2px solid var(--color-light);
+        background-color: var(--color-white);
+        padding: var(--space-xxxs) var(--space-s);
+        color: var(--color-light);
+
+        &:hover{
+            background-color: var(--color-light);
+            color: var(--color-white);
+        } 
+    }
 }
