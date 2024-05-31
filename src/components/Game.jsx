@@ -28,7 +28,7 @@ function Game (){
                 }
             })
             .then((response) => setCharacters(response))
-            .catch()
+            .catch((e) => console.log(e.message))
     }, [])
 
     return (
