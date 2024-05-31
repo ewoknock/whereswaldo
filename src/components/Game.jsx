@@ -12,6 +12,7 @@ function Game (){
 
     const [characters, setCharacters] = useState([])
     const [gameOver, setGameOver] = useState(false)
+    const [finalTime, setFinalTime] = useState(0);
 
 
     useEffect(() => {
@@ -34,7 +35,7 @@ function Game (){
             {gameOver}
             <section className="game">
                 <Characters characters={characters} />
-                <Gameboard characters={characters} endGame={() => setGameOver(true)} />
+                <Gameboard characters={characters} endGame={() => setGameOver(true)} setFinalTime={setFinalTime} />
             </section>
         </FoundCharactersProvider>
  

@@ -1,18 +1,22 @@
 import { useState, useEffect } from "react";
+import PropTypes from "prop-types"
 
-function Timer(){
+function Timer({gameEnded, setFinalTime}){
     const [time, setTime] = useState(0);
     const [isActive, setIsActive] = useState(true);
     
     useEffect(() => {
         let interval  = null;
 
-        if(isActive){
+        if(gameEnded){
+            setFinalTime(time);
+            setIsActive(false);
+            clearInterval(interval);
+        }else{
+            setIsActive(true);
             interval = setInterval(() => {
                 setTime((time) => time + 10);
             }, 10);
-        }else{
-            clearInterval(interval);
         }
     }, [isActive])
 
@@ -29,6 +33,11 @@ function Timer(){
             </span>
         </div>
     )
+}
+
+Timer.propTypes = {
+    gameEnded: PropTypes.func,
+    setFinalTime: PropTypes.func,
 }
 
 export default Timer

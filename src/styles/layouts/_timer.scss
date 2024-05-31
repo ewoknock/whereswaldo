@@ -2,8 +2,8 @@
     position: fixed;
     z-index: 99;
     left: 50%;
-    bottom: 5%;
-
+    bottom: 2%;
+    transform: translateX(-50%);
     background-color: var(--color-secondary);
     padding: var(--space-xxxs) var(--space-xxs);
     border-radius: var(--border-radius);

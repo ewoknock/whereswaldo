@@ -15,7 +15,7 @@ import {
 } from "./FoundCharacters"
 import Timer from "./Timer"
 
-function Gameboard({characters, endGame}){
+function Gameboard({characters, endGame, setFinalTime}){
     const [guess, setGuess] = useState({x: null, y: null})
     const [targetPosition, setTargetPosition] = useState({ x:0, y: 0, show: false})
     const [imgSize, setImgSize] = useState({w:0, h:0})
@@ -77,7 +77,7 @@ function Gameboard({characters, endGame}){
                 </ul>
             </div>
             </div>
-            <Timer />
+            <Timer endGame={endGame} setFinalTime={setFinalTime}/>
         </div>
     )
 }
