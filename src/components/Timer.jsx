@@ -2,12 +2,19 @@ import { useState, useEffect } from "react";
 
 function Timer(){
     const [time, setTime] = useState(0);
+    const [isActive, setIsActive] = useState(true);
     
     useEffect(() => {
-        setInterval(() => {
-            setTime((time) => time + 10);
-        }, 10);
-    }, [])
+        let interval  = null;
+
+        if(isActive){
+            interval = setInterval(() => {
+                setTime((time) => time + 10);
+            }, 10);
+        }else{
+            clearInterval(interval);
+        }
+    }, [isActive])
 
     return (
         <div className="timer">
