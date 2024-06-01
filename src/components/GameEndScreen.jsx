@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import clockify from '../utils/clockify'
+import HighScores from './HighScores'
 
 function GameEndScreen({finalTime}){
 
@@ -17,6 +18,7 @@ function GameEndScreen({finalTime}){
                 </div>
                 <div className="game-end__body">
                     <p>Your Time was {clockify(finalTime)}</p>
+                    <HighScores time={finalTime} />
                 </div>
                 <div className="game-end__actions">
                     <button type="button" className="btn btn__play-again" onClick={() => resetGame()}>Play Again</button>

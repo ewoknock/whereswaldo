@@ -9,9 +9,12 @@
 // Components
 @import "components/dropdown";
 @import "components/btn";
+@import "components/table";
 
 // Layouts
 @import "layouts/gameboard";
 @import "layouts/characters";
 @import "layouts/timer";
 @import "layouts/gameend";
+@import "layouts/highscores";
+@import "layouts/home";
