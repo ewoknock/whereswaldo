@@ -32,7 +32,7 @@ function Timer({gameOver, setFinalTime}){
     }, [isActive])
 
     return (
-        <div className="timer">
+        <div className={isActive ? "timer" : "timer__none"}>
             {clockify(time)}
         </div>
     )

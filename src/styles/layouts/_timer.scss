@@ -7,4 +7,8 @@
     background-color: var(--color-secondary);
     padding: var(--space-xxxs) var(--space-xxs);
     border-radius: var(--border-radius);
+
+    &__none{
+        visibility: hidden;
+    }
 }

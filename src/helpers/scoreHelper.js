@@ -22,6 +22,7 @@ function ScoreHelper(){
     }, [updated])
 
     const postScore = (name, time) => {
+        console.log(time)
         let url = backEndUrl + "api/v1/scores/"
         if(name === undefined || name.length == 0){
             name = "Anon"

@@ -19,6 +19,7 @@ function HighScores({time}){
     return (
         <section className="high-scores">
             {newHighScore && !updated && <Form submit={postScore} time={time} />}
+            {newHighScore && updated && <p>Your score has been successfully saved into the top 10! </p>}
             <table>
                 <thead>
                     <tr><th colSpan="3">Top 10 Fastest Times</th></tr>
