@@ -21,7 +21,8 @@
     }
 
     &__play-again,
-    &__submit{
+    &__submit,
+    &__credit{
         border: 2px solid var(--color-secondary);
         background-color: var(--color-white);
         padding: var(--space-xxxs) var(--space-s);

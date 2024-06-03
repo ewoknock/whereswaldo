@@ -13,7 +13,7 @@ const backEndUrl = "http://localhost:3000/"
 function Game (){
 
     const [characters, setCharacters] = useState([])
-    const [gameOver, setGameOver] = useState(true)
+    const [gameOver, setGameOver] = useState(false)
     const [finalTime, setFinalTime] = useState(0);
 
     useEffect(() => {
