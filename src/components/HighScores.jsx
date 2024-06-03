@@ -1,6 +1,7 @@
 import scoreHelper from "../helpers/scoreHelper";
 import clockify from "../utils/clockify";
 import Form from "./Form";
+import PropTypes from 'prop-types'
 
 function HighScores({time}){
     const { scores, updated, postScore } = scoreHelper();
@@ -26,6 +27,10 @@ function HighScores({time}){
             </table>
         </section>
     )
+}
+
+HighScores.propTypes = {
+    time: PropTypes.number,
 }
 
 export default HighScores

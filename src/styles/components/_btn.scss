@@ -20,7 +20,8 @@
         } 
     }
 
-    &__play-again{
+    &__play-again,
+    &__submit{
         border: 2px solid var(--color-secondary);
         background-color: var(--color-white);
         padding: var(--space-xxxs) var(--space-s);

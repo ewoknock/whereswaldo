@@ -13,7 +13,7 @@ const backEndUrl = "http://localhost:3000/"
 function Game (){
 
     const [characters, setCharacters] = useState([])
-    const [gameOver, setGameOver] = useState(false)
+    const [gameOver, setGameOver] = useState(true)
     const [finalTime, setFinalTime] = useState(0);
 
     useEffect(() => {
@@ -34,7 +34,7 @@ function Game (){
     return (
         <>
             <FoundCharactersProvider>
-                {gameOver && <GameEndScreen finalTime={finalTime} />}
+                {gameOver && <GameEndScreen finalTime={15} />}
                 <section className="game">
                     <Characters characters={characters} />
                     <Gameboard characters={characters} endGame={() => setGameOver(true)} setFinalTime={setFinalTime} />
