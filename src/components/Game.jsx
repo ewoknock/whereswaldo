@@ -34,7 +34,7 @@ function Game (){
     return (
         <>
             <FoundCharactersProvider>
-                {gameOver && <GameEndScreen finalTime={15} />}
+                {gameOver && <GameEndScreen finalTime={finalTime} startGame={() => setGameOver(false)} />}
                 <section className="game">
                     <Characters characters={characters} />
                     <Gameboard characters={characters} endGame={() => setGameOver(true)} setFinalTime={setFinalTime} />

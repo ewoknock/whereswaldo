@@ -2,11 +2,15 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import clockify from '../utils/clockify'
 import HighScores from './HighScores'
+import { useFoundCharactersDispatch } from './FoundCharacters'
 
-function GameEndScreen({finalTime}){
+function GameEndScreen({finalTime, startGame}){
+    const dispatch = useFoundCharactersDispatch()
 
     const resetGame = () => {
-
+        startGame()
+        window.scrollTo({ top: 0 })
+        dispatch({ type: 'clear' })
     }
 
     return(
@@ -31,5 +35,6 @@ function GameEndScreen({finalTime}){
 
 GameEndScreen.propTypes = {
     finalTime: PropTypes.number,
+    startGame: PropTypes.func,
 }
 export default GameEndScreen
