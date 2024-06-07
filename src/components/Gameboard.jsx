@@ -20,7 +20,7 @@ function Gameboard({characters, endGame}){
     const [targetPosition, setTargetPosition] = useState({ x:0, y: 0, show: false})
     const [imgSize, setImgSize] = useState({w:0, h:0})
     const [dropdownHeight, setDropdownHeight] = useState(0)
-    const [found, setFound] = useState({visible: false, name: null})
+    const [guessResult, setGuessResult] = useState({visible: false, name: null})
     const foundCharacters = useFoundCharacters()
     const dispatch = useFoundCharactersDispatch()
 
@@ -33,7 +33,7 @@ function Gameboard({characters, endGame}){
         setGuess({x: guessX, y: guessY})
         setTargetPosition({x: targetX, y: targetY, show: true})
         setImgSize({w: imgWidth, h: imgHeight})
-        setFound({...found, visible: false})
+        setGuessResult({...guessResult, visible: false})
         setDropdownHeight(0)
     }
 
@@ -47,15 +47,15 @@ function Gameboard({characters, endGame}){
     const closeTarget = () => {setTargetPosition({...targetPosition, show: false})}
 
     const handleGuess = (character) => {
-        console.log(foundCharacters)
 
-        setFound(foundCharacter(character))
+        let found = foundCharacter(character)
+        let result = found ? character.name : null
         if(found){
             dispatch({type: 'found', name: character.name})
         }
+        setGuessResult({visible: true, name: result})
         closeTarget()
-        setFound({visible: true, name: character.name})
-        setTimeout(() => {setFound({visible: false, name: null})}, 3000)
+        setTimeout(() => {setGuessResult({visible: false, name: null})}, 3000)
         if(found && foundCharacters.length == 4){
             endGame()
         }
@@ -65,6 +65,8 @@ function Gameboard({characters, endGame}){
         setDropdownHeight(dropdownHeight === 0 ? 200 : 0)
     }
 
+    let rightEdge = targetPosition.x / window.innerWidth
+
     let style = {left:targetPosition.x + 'px', top:targetPosition.y + 'px', display: targetPosition.show ? 'flex' : 'none'}
 
     return (
@@ -72,18 +74,18 @@ function Gameboard({characters, endGame}){
             <img src={gameImage} onClick={setAllStates}/>
             <div style={style} className="guess">
                 <div className="guess__targetbox"></div>
-                <div className="dropdown">
-                <button className="btn btn__dropdown" onClick={collapsible}>Who is it? {'\u25bc'}</button>
-                <ul className="dropdown__menu" ref={dropdownMenu} style={{ maxHeight: dropdownHeight}}>
-                    {characterNames.map((character, i) => {
-                        if(!foundCharacters.includes(character.name)){
-                            return <GuessButton key={i} onClick={() => handleGuess(character)}>{character.name}</GuessButton>   
-                        }
-                    })}
-                </ul>
+                <div style={{transform: rightEdge >= .8 ? `translateX(-120%)` : ``}} className="dropdown">
+                    <button className="btn btn__dropdown" onClick={collapsible}>Who is it? {'\u25bc'}</button>
+                    <ul className="dropdown__menu" ref={dropdownMenu} style={{ maxHeight: dropdownHeight}}>
+                        {characterNames.map((character, i) => {
+                            if(!foundCharacters.includes(character.name)){
+                                return <GuessButton key={i} onClick={() => handleGuess(character)}>{character.name}</GuessButton>   
+                            }
+                        })}
+                    </ul>
+                </div>
             </div>
-            </div>
-            <GuessOutcome found={found} position={targetPosition} />
+            <GuessOutcome found={guessResult} position={targetPosition} />
         </div>
     )
 }
