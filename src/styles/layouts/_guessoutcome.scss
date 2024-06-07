@@ -1,0 +1,17 @@
+.guess-result{
+    z-index: 5;
+    border-radius: var(--border-radius);
+    padding: var(--space-xs) var(--space-s);
+
+    &__found{
+        background-color: var(--color-secondary);
+    }
+
+    &__not-found{
+        background-color: var(--color-tertiary);
+    }
+}
+
+.hidden{
+    visibility: hidden;
+}

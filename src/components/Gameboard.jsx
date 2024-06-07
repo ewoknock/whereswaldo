@@ -13,12 +13,14 @@ import {
     useFoundCharacters, 
     useFoundCharactersDispatch
 } from "./FoundCharacters"
+import GuessOutcome from "./GuessOutcome"
 
 function Gameboard({characters, endGame}){
     const [guess, setGuess] = useState({x: null, y: null})
     const [targetPosition, setTargetPosition] = useState({ x:0, y: 0, show: false})
     const [imgSize, setImgSize] = useState({w:0, h:0})
     const [dropdownHeight, setDropdownHeight] = useState(0)
+    const [found, setFound] = useState({visible: false, name: null})
     const foundCharacters = useFoundCharacters()
     const dispatch = useFoundCharactersDispatch()
 
@@ -31,6 +33,7 @@ function Gameboard({characters, endGame}){
         setGuess({x: guessX, y: guessY})
         setTargetPosition({x: targetX, y: targetY, show: true})
         setImgSize({w: imgWidth, h: imgHeight})
+        setFound({...found, visible: false})
         setDropdownHeight(0)
     }
 
@@ -46,11 +49,13 @@ function Gameboard({characters, endGame}){
     const handleGuess = (character) => {
         console.log(foundCharacters)
 
-        let found = foundCharacter(character)
+        setFound(foundCharacter(character))
         if(found){
             dispatch({type: 'found', name: character.name})
         }
         closeTarget()
+        setFound({visible: true, name: character.name})
+        setTimeout(() => {setFound({visible: false, name: null})}, 3000)
         if(found && foundCharacters.length == 4){
             endGame()
         }
@@ -78,6 +83,7 @@ function Gameboard({characters, endGame}){
                 </ul>
             </div>
             </div>
+            <GuessOutcome found={found} position={targetPosition} />
         </div>
     )
 }
