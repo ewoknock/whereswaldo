@@ -2,9 +2,25 @@ import { useState, useEffect } from "react"
 
 const backEndUrl = "http://localhost:3000/"
 
-function ScoreHelper(){
+function APIHelper(){
     const [scores, setScores] = useState([])
     const [updated, setUpdated] = useState(null)
+    const [characters, setCharacters] = useState([])
+
+    useEffect(() => {
+        let url = backEndUrl + "api/v1/characters/"
+        fetch(url)
+            .then((response) => {
+                if(response.ok){
+                    return response.json()
+                }
+                else{
+                    throw new Error("Error retrieving character data from API")
+                }
+            })
+            .then((response) => setCharacters(response))
+            .catch((e) => console.log(e.message))
+    }, [])
 
     useEffect(() => {
         let url = backEndUrl + "api/v1/scores/"
@@ -52,7 +68,7 @@ function ScoreHelper(){
         .catch((e) => console.log(e.message));
     }
 
-    return { scores, updated, postScore }
+    return { scores, updated, characters, postScore }
 }
 
-export default ScoreHelper
+export default APIHelper

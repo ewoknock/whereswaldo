@@ -7,29 +7,13 @@ import Gameboard from "./Gameboard"
 import { FoundCharactersProvider } from "./FoundCharacters"
 import Timer from "./Timer"
 import GameEndScreen from "./GameEndScreen"
-
-const backEndUrl = "http://localhost:3000/"
+import APIHelper from "../helpers/APIHelper"
 
 function Game (){
 
-    const [characters, setCharacters] = useState([])
+    const {characters} = APIHelper();
     const [gameOver, setGameOver] = useState(false)
     const [finalTime, setFinalTime] = useState(0);
-
-    useEffect(() => {
-        let url = backEndUrl + "api/v1/characters/"
-        fetch(url)
-            .then((response) => {
-                if(response.ok){
-                    return response.json()
-                }
-                else{
-                    throw new Error("Error retrieving character data from API")
-                }
-            })
-            .then((response) => setCharacters(response))
-            .catch((e) => console.log(e.message))
-    }, [])
 
     return (
         <>

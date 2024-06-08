@@ -1,10 +1,10 @@
-import scoreHelper from "../helpers/scoreHelper";
+import APIHelper from "../helpers/APIHelper";
 import clockify from "../utils/clockify";
 import Form from "./Form";
 import PropTypes from 'prop-types'
 
 function HighScores({time}){
-    const { scores, updated, postScore } = scoreHelper();
+    const { scores, updated, postScore } = APIHelper();
 
     const top10 = scores.map((row, i) => {
         return <tr key={i}>
