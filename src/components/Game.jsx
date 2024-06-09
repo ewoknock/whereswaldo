@@ -1,6 +1,5 @@
 import { 
-    useState, 
-    useEffect 
+    useState,  
 } from "react"
 import Characters from "./Characters"
 import Gameboard from "./Gameboard"
