@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 
-const backEndUrl = "http://localhost:3000/"
+const backEndUrl = "https://whereswaldo-api.fly.dev/"
 
 function APIHelper(){
     const [scores, setScores] = useState([])

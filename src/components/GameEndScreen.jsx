@@ -26,7 +26,7 @@ function GameEndScreen({finalTime, startGame}){
                 </div>
                 <div className="game-end__actions">
                     <button type="button" className="btn btn__play-again" onClick={() => resetGame()}>Play Again</button>
-                    <Link to="/" className="btn btn__home">Home</Link>
+                    <Link to="/whereswaldo/" className="btn btn__home">Home</Link>
                 </div>
             </section>
         </>

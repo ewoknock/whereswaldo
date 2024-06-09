@@ -12,7 +12,7 @@ function Home(){
             <div>Once the game beings, try to find all of the following characters hidden within the image!</div>
             <img src={Characters}/> 
             <div>Click on the image to make your guess</div>
-            <Link to="/play" className="btn btn__start-game">Start Game</Link>
+            <Link to="/whereswaldo/play" className="btn btn__start-game">Start Game</Link>
             <HighScores />
         </section>
     )
