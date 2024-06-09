@@ -9,7 +9,7 @@ function APIHelper(){
 
     useEffect(() => {
         let url = backEndUrl + "api/v1/characters/"
-        fetch(url)
+        fetch(url, { mode: "cors" })
             .then((response) => {
                 if(response.ok){
                     return response.json()
@@ -24,7 +24,7 @@ function APIHelper(){
 
     useEffect(() => {
         let url = backEndUrl + "api/v1/scores/"
-        fetch(url)
+        fetch(url, { mode: "cors" })
             .then((response) => {
                 if(response.ok){
                     return response.json()
