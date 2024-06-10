@@ -4,6 +4,7 @@ This is a web based version of the classic Where's Waldo game built using React 
 
 - [Link to the Assignment](https://www.theodinproject.com/lessons/react-new-where-s-waldo-a-photo-tagging-app)
 - [Link to the Backend](https://github.com/ewoknock/whereswaldo-api)
+- [Live Demo](https://ewoknock.github.io/whereswaldo/)
 
 ## Features
 
